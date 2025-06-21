@@ -1,9 +1,9 @@
 import pandas as pd
 import nltk
+nltk.download('punkt')
 from nltk.tokenize import word_tokenize
 import string
 
-nltk.download('punkt', quiet=True)
 
 def extract_skills(text):
     """Improved skill extraction that handles comma-separated skills and filters out non-skill tokens"""
