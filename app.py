@@ -2,11 +2,6 @@ import streamlit as st
 import pandas as pd
 import os
 from matching import match_skills
-import nltk
-
-nltk.download('punkt')         # for word_tokenize
-nltk.download('stopwords')     # if you use stopwords
-nltk.download('averaged_perceptron_tagger')  # if you're using POS tagging
 
 def load_data():
     """Load data with comprehensive error handling"""
@@ -159,3 +154,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
