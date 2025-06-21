@@ -2,8 +2,17 @@ import pandas as pd
 import nltk
 from nltk.tokenize import word_tokenize
 import string
+import os
 
-nltk.download('punkt', quiet=True)
+# NLTK data initialization
+nltk_data_path = os.path.join(os.path.dirname(__file__), 'nltk_data')
+os.makedirs(nltk_data_path, exist_ok=True)  # Ensure directory exists
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt', download_dir=nltk_data_path, quiet=True)
+    nltk.data.path.append(nltk_data_path)
+
 
 def extract_skills(text):
     """Improved skill extraction that handles comma-separated skills and filters out non-skill tokens"""
